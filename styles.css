@@ -400,6 +400,91 @@ img {
   animation: doodle-drift 28s linear infinite;
 }
 
+.street-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--lime);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.graffiti-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 13;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  opacity: 0.42;
+  filter: drop-shadow(0 0 10px rgba(196, 231, 46, 0.1));
+  animation: spray-draw 13.5s cubic-bezier(.58, .01, .28, 1) infinite;
+}
+
+.line-crown,
+.line-bubble {
+  stroke: #7457e8;
+  opacity: 0.38;
+}
+
+.line-star {
+  animation-delay: 0s;
+}
+
+.line-crown {
+  animation-delay: 1.9s;
+}
+
+.line-arrow {
+  animation-delay: 3.7s;
+}
+
+.line-bubble {
+  animation-delay: 5.4s;
+}
+
+.line-smile {
+  animation-delay: 7.1s;
+}
+
+.line-bolt {
+  animation-delay: 8.8s;
+}
+
+.spray-dust {
+  fill: currentColor;
+  opacity: 0;
+  animation: spray-dust 6.8s ease-in-out infinite;
+}
+
+.dust-b {
+  color: #7457e8;
+  animation-delay: 2.4s;
+}
+
+.spray-cap {
+  fill: white;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spray-cap 13.5s ease-in-out infinite;
+}
+
+.cap-a {
+  animation-delay: 0.2s;
+}
+
+.cap-b {
+  animation-delay: 2.1s;
+}
+
+.cap-c {
+  animation-delay: 4.1s;
+}
+
 .hero::after {
   position: absolute;
   inset: 0;
@@ -1486,6 +1571,65 @@ textarea:focus {
   }
 }
 
+@keyframes spray-draw {
+  0% {
+    stroke-dashoffset: 1200;
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.42;
+  }
+  34%,
+  72% {
+    stroke-dashoffset: 0;
+    opacity: 0.42;
+  }
+  88%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes spray-dust {
+  0%,
+  18%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.94);
+  }
+  30%,
+  58% {
+    opacity: 0.28;
+    transform: translateY(-8px) scale(1);
+  }
+  78% {
+    opacity: 0;
+    transform: translateY(-16px) scale(1.08);
+  }
+}
+
+@keyframes spray-cap {
+  0%,
+  14%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.7);
+  }
+  22% {
+    opacity: 0.9;
+    transform: translate(34px, -18px) scale(1);
+  }
+  34% {
+    opacity: 0.6;
+    transform: translate(96px, 12px) scale(0.86);
+  }
+  48% {
+    opacity: 0;
+    transform: translate(146px, 44px) scale(0.62);
+  }
+}
+
 @keyframes march-leader {
   0%,
   100% {
@@ -1670,6 +1814,12 @@ textarea:focus {
     width: 100%;
     padding-top: 58px;
     padding-bottom: 70px;
+  }
+
+  .street-art {
+    width: 180%;
+    height: 100%;
+    transform: translateX(-23%);
   }
 
   .hero-copy {
