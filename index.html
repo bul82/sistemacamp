@@ -6,17 +6,31 @@
     <title>sistemacamp — Профи-выходные для детей 11-14 лет</title>
     <meta
       name="description"
-      content="Sistema Weekends: трехдневные образовательно-развлекательные выезды для детей 11-14 лет. Профориентация, игры, мастер-классы, проживание, питание и трансфер."
+      content="Sistema Weekends: выезд на 3 дня для детей 11-14 лет. Профессии на практике, командные игры, проживание, питание и трансфер."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="image"
+      href="assets/hero-action.jpg"
+      imagesrcset="assets/hero-action-760.jpg 760w, assets/hero-action-1000.jpg 1000w, assets/hero-action.jpg 1400w"
+      imagesizes="(max-width: 680px) 100vw, 50vw"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="preloader" aria-label="Загрузка страницы">
+      <div class="camp-loader" aria-hidden="true">
+        <span class="leader">
+          <i></i>
+        </span>
+        <span class="camper camper-1"></span>
+        <span class="camper camper-2"></span>
+        <span class="camper camper-3"></span>
+        <span class="path"></span>
+      </div>
+      <p>Собираем отряд</p>
+    </div>
     <header class="site-header" aria-label="Навигация">
       <a class="brand" href="#top" aria-label="sistemacamp">
         <span class="brand-mark">s</span>
@@ -24,6 +38,7 @@
       </a>
       <nav class="nav" aria-label="Разделы страницы">
         <a href="#who">Кто участвует</a>
+        <a href="#formats">Форматы</a>
         <a href="#program">Программа</a>
         <a href="#comfort">Комфорт</a>
         <a href="#price">Цена</a>
@@ -35,14 +50,14 @@
       <section class="hero section">
         <div class="hero-copy">
           <p class="eyebrow">Sistema Weekends · Профи-выходные</p>
-          <h1>Профи-выходные, где дети пробуют профессии без скучных лекций.</h1>
+          <h1>Выходные, где ребенок пробует профессии руками.</h1>
           <p class="lead">
-            Трехдневный выезд для детей 11-14 лет: мастер-классы от взрослых из реальных профессий,
-            игры, спорт, вечерние активности и нормальный сон. Да, он тоже в программе.
+            3 дня для детей 11-14 лет: мастер-классы от людей из бизнеса, IT, медиа и креатива,
+            командные игры, спорт и вечерняя программа. И нормальный сон. Без него подростковая магия быстро превращается в тыкву.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#register">Выбрать заезд</a>
-            <a class="button ghost" href="#program">Посмотреть программу</a>
+            <a class="button primary" href="#register">Выбрать дату</a>
+            <a class="button ghost" href="#program">Что будет в программе</a>
           </div>
           <div class="hero-facts" aria-label="Ключевые факты">
             <div>
@@ -60,36 +75,113 @@
           </div>
         </div>
         <div class="hero-visual" aria-label="Дети на активной программе">
-          <img src="assets/image5.jpg" alt="Дети участвуют в командной активности на природе" />
+          <img
+            src="assets/hero-action.jpg"
+            srcset="assets/hero-action-760.jpg 760w, assets/hero-action-1000.jpg 1000w, assets/hero-action.jpg 1400w"
+            sizes="(max-width: 680px) 100vw, 50vw"
+            width="1400"
+            height="934"
+            fetchpriority="high"
+            alt="Дети участвуют в командной активности на природе"
+          />
           <div class="hero-note">
             <span>02-04 октября 2026</span>
             <strong>первый пилотный заезд</strong>
           </div>
-          <div class="sticker sticker-a">без “а можно я дома?”</div>
-          <div class="sticker sticker-b">soft skills без скучного слайда</div>
+          <div class="sticker sticker-a">а можно я домой?</div>
+          <div class="sticker sticker-b">навыки без скучных слайдов</div>
+        </div>
+      </section>
+
+      <div class="format-ribbon" aria-label="Темы выходных">
+        <div>
+          <span>Бизнес-выходные</span>
+          <span>ТЕХ-выходные</span>
+          <span>Креатив-выходные</span>
+          <span>Спорт-выходные</span>
+          <span>Бизнес-выходные</span>
+          <span>ТЕХ-выходные</span>
+          <span>Креатив-выходные</span>
+          <span>Спорт-выходные</span>
+        </div>
+      </div>
+
+      <section id="formats" class="section weekend-picker">
+        <div class="section-heading">
+          <p class="eyebrow">Выбери свой weekend</p>
+          <h2>Один формат, разные темы. Ребенок может начать с того, что ему ближе.</h2>
+        </div>
+        <div class="format-shell">
+          <div class="format-tabs" role="tablist" aria-label="Темы выходных">
+            <button class="format-tab active" type="button" data-format="business">Бизнес</button>
+            <button class="format-tab" type="button" data-format="tech">ТЕХ</button>
+            <button class="format-tab" type="button" data-format="creative">Креатив</button>
+            <button class="format-tab" type="button" data-format="sport">Спорт</button>
+          </div>
+          <div class="format-stage">
+            <div>
+              <p class="card-kicker" id="format-kicker">Бизнес-выходные</p>
+              <h3 id="format-title">Как придумать идею и не утонуть в “ну такое”.</h3>
+              <p id="format-copy">Дети пробуют собрать мини-проект: кому он нужен, как объяснить пользу и как защитить идею перед командой.</p>
+            </div>
+            <ul id="format-points">
+              <li>придумать идею;</li>
+              <li>разобрать простую экономику;</li>
+              <li>выступить без “я сейчас умру”.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <section id="who" class="section split">
         <div class="section-heading">
           <p class="eyebrow">Кто участвует</p>
-          <h2>Для детей, которым уже тесно в “просто поиграть”, но рано в серьезный взрослый мир.</h2>
+          <h2>Для детей, которым уже интересно пробовать взрослые роли, но еще хочется бегать и смеяться.</h2>
         </div>
         <div class="who-grid">
           <article>
             <span class="card-icon">11-14</span>
             <h3>Возраст</h3>
-            <p>Участники 11-14 лет. В этом возрасте уже интересно спорить, пробовать роли и задавать вопросы “а кем вообще можно быть?”.</p>
+            <p>Участники 11-14 лет. Возраст, когда уже хочется выбирать самому, спорить с аргументами и спрашивать: “а кем вообще можно стать?”.</p>
           </article>
           <article>
             <span class="card-icon">3</span>
             <h3>Отряда</h3>
-            <p>До 17 человек в каждом отряде, чтобы ребенок не потерялся в толпе и быстро нашел свою команду.</p>
+            <p>До 17 человек в отряде. Так ребенка видно, слышно и проще познакомить с командой.</p>
           </article>
           <article>
             <span class="card-icon">50</span>
             <h3>Мест на выходные</h3>
-            <p>Формат камерный: до 50 участников на один выезд. Без конкурсного отбора, регистрация по свободным местам.</p>
+            <p>До 50 участников на один выезд. Конкурса нет: место закрепляется после регистрации.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section takeaways">
+        <div class="section-heading">
+          <p class="eyebrow">Что ребенок увезет домой</p>
+          <h2>Не только фотографии и “было нормально”.</h2>
+        </div>
+        <div class="takeaway-grid">
+          <article>
+            <span>01</span>
+            <h3>Пробу профессий</h3>
+            <p>Ребенок видит работу через задачи, людей и вопросы, а не через список “перспективных сфер”.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Мини-проект</h3>
+            <p>В конце есть результат, который можно показать дома: идея, решение или командная защита.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Новые знакомства</h3>
+            <p>До 17 человек в отряде. Достаточно людей для команды, но не толпа, где все теряются.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Понимание себя</h3>
+            <p>Что зашло, что нет, где было легко, где пришлось подумать. Иногда это важнее “правильного ответа”.</p>
           </article>
         </div>
       </section>
@@ -97,37 +189,37 @@
       <section id="program" class="section program">
         <div class="section-heading narrow">
           <p class="eyebrow">Структура программы</p>
-          <h2>Три оси: голова думает, тело двигается, будущее становится чуть понятнее.</h2>
+          <h2>Учимся, двигаемся, пробуем профессии. В один уикенд.</h2>
         </div>
         <div class="program-grid">
           <article class="program-card blue">
             <p class="card-kicker">Мышление и навыки</p>
             <h3>Образовательный блок</h3>
-            <p>Интерактивные занятия про финансы, личные решения, ресурсы и мини-проекты. Не “урок с тетрадкой”, а школьный урок 2.0: коротко, руками, с игровой валютой.</p>
+            <p>Занятия про деньги, решения и мини-проекты. Не урок “откройте тетради”, а короткие задачи, команды и игровая валюта.</p>
             <ul>
-              <li>задания и командные решения;</li>
-              <li>симуляция в финале;</li>
-              <li>практика вместо “запишите определение”.</li>
+              <li>задания в командах;</li>
+              <li>игровая симуляция в финале;</li>
+              <li>меньше терминов, больше действий.</li>
             </ul>
           </article>
           <article class="program-card green">
             <p class="card-kicker">Энергия и восстановление</p>
             <h3>Развлекательный блок</h3>
-            <p>Спорт, эстафеты, игры на знакомство, интеллектуальные задания, творческие активности и дискотека. Для взрослых: активный отдых. Для детей: наконец-то не “посиди спокойно”.</p>
+            <p>Спорт, эстафеты, игры на знакомство, квизы, творческие задания и дискотека. Для детей это не “досуг”, а нормальная возможность выпустить пар.</p>
             <ul>
               <li>футбол, волейбол, командные игры;</li>
               <li>вечерняя программа с диджеем;</li>
-              <li>тихий час, чтобы батарейка не ушла в 1%.</li>
+              <li>тихий час, чтобы батарейка не ушла в красную зону.</li>
             </ul>
           </article>
           <article class="program-card orange">
             <p class="card-kicker">Ценность и будущее</p>
             <h3>Профориентационный блок</h3>
-            <p>Мастер-классы от сотрудников АФК “Система” и партнерских компаний: бизнес, технологии, медиа, дизайн, продукты и реальные карьерные маршруты.</p>
+            <p>Встречи с людьми из компаний АФК “Система” и партнеров: бизнес, технологии, медиа, дизайн, продукты. Дети видят, чем человек занимается на работе, а не только название должности.</p>
             <ul>
-              <li>формат “день из жизни” специалиста;</li>
-              <li>мини-кейсы из настоящих задач;</li>
-              <li>вопросы профессионалам без взрослой неловкости.</li>
+              <li>формат “один день из работы”;</li>
+              <li>мини-задачи из реальных проектов;</li>
+              <li>вопросы специалистам без неловкого “а можно спросить?”.</li>
             </ul>
           </article>
         </div>
@@ -135,48 +227,85 @@
         <div class="timeline" aria-label="План выходных">
           <div>
             <strong>Пятница</strong>
-            <span>заезд, знакомство, командная настройка</span>
+            <span>заезд, знакомство, первые командные задания</span>
           </div>
           <div>
             <strong>Суббота</strong>
-            <span>мастер-классы, игры, спорт, вечерняя программа</span>
+            <span>мастер-классы, спорт, игры и вечерняя программа</span>
           </div>
           <div>
             <strong>Воскресенье</strong>
-            <span>мини-проект, итоги, трансфер домой</span>
+            <span>мини-проект, итоги и дорога домой</span>
           </div>
         </div>
       </section>
 
       <section id="comfort" class="section comfort">
-        <div class="comfort-photo">
-          <img src="assets/image20.png" alt="Участница лагеря на территории у воды" />
-        </div>
         <div class="comfort-copy">
           <p class="eyebrow">Логистика и комфорт</p>
-          <h2>Родителям спокойно: понятный маршрут, проживание, питание и контролируемая среда.</h2>
-          <div class="comfort-list">
-            <div>
-              <h3>Место</h3>
-              <p>Актив-отель “Искра” как круглогодичная площадка для детских программ.</p>
-            </div>
-            <div>
-              <h3>Трансфер</h3>
-              <p>Организованный автобус от отеля “Космос ВДНХ”. Отправление в 07:30.</p>
-            </div>
-            <div>
-              <h3>Проживание</h3>
-              <p>2 ночи в комфортных номерах. В программе предусмотрено время на восстановление.</p>
-            </div>
-            <div>
-              <h3>Питание</h3>
-              <p>Завтрак, обед и ужин включены. Диетические опции можно запросить заранее.</p>
-            </div>
-            <div>
-              <h3>Безопасность</h3>
-              <p>Дети находятся в контролируемой среде на протяжении всей программы.</p>
-            </div>
+          <h2>Понятно, где ребенок и что с ним происходит.</h2>
+          <p class="comfort-lead">
+            Выезд собран без “а где встречаемся?” и “что с едой?”. Есть трансфер, проживание,
+            питание и взрослые, которые отвечают за программу.
+          </p>
+          <div class="comfort-route" aria-label="Маршрут выезда">
+            <span>Космос ВДНХ</span>
+            <strong>07:30</strong>
+            <span>актив-отель “Искра”</span>
           </div>
+        </div>
+        <div class="comfort-photo">
+          <img
+            src="assets/comfort-girl.jpg"
+            srcset="assets/comfort-girl-640.jpg 640w, assets/comfort-girl.jpg 892w"
+            sizes="(max-width: 680px) 100vw, 38vw"
+            width="892"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            alt="Участница лагеря на территории у воды"
+          />
+          <div class="comfort-photo-note">
+            <strong>3 дня / 2 ночи</strong>
+            <span>трансфер, питание и проживание уже внутри стоимости</span>
+          </div>
+        </div>
+        <div class="comfort-list">
+          <div>
+            <h3>Место</h3>
+            <p>Актив-отель “Искра”. Там проходят детские и семейные программы в течение года.</p>
+          </div>
+          <div>
+            <h3>Трансфер</h3>
+            <p>Автобус от отеля “Космос ВДНХ”. Отправление в 07:30.</p>
+          </div>
+          <div>
+            <h3>Проживание</h3>
+            <p>2 ночи в номерах. В расписании есть паузы, чтобы дети не выгорели к субботнему вечеру.</p>
+          </div>
+          <div>
+            <h3>Питание</h3>
+            <p>Завтрак, обед и ужин включены. Если есть ограничения по питанию, их лучше указать в заявке.</p>
+          </div>
+          <div>
+            <h3>Безопасность</h3>
+            <p>Дети не предоставлены сами себе: программа идет по расписанию, рядом команда взрослых.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section parent-check">
+        <div>
+          <p class="eyebrow">Родительский чек-лист</p>
+          <h2>Перед выездом понятно главное.</h2>
+        </div>
+        <div class="check-grid">
+          <div><strong>Где встречаемся</strong><span>отель “Космос ВДНХ”</span></div>
+          <div><strong>Когда выезд</strong><span>07:30, организованный автобус</span></div>
+          <div><strong>Где живут дети</strong><span>актив-отель “Искра”, 2 ночи</span></div>
+          <div><strong>Что с едой</strong><span>завтрак, обед и ужин включены</span></div>
+          <div><strong>Сколько детей</strong><span>до 50 участников на выезд</span></div>
+          <div><strong>Как попасть</strong><span>без конкурса, по регистрации</span></div>
         </div>
       </section>
 
@@ -185,9 +314,9 @@
           <div>
             <p class="eyebrow">Сколько стоит</p>
             <h2>21 926 ₽ за участника</h2>
-            <p>Полная стоимость за 3 дня и 2 ночи. Включены программа, трансфер, проживание, питание, страховка и организационные расходы.</p>
+            <p>Цена за 3 дня и 2 ночи. Внутри программа, автобус, проживание, питание, страховка и организация выезда.</p>
           </div>
-          <a class="button primary" href="#register">Забронировать место</a>
+          <a class="button primary" href="#register">Выбрать дату</a>
         </div>
         <div class="included-grid">
           <span>образовательная программа</span>
@@ -199,13 +328,34 @@
         </div>
       </section>
 
+      <section class="section quiz">
+        <div class="quiz-card">
+          <div>
+            <p class="eyebrow">Мини-квиз</p>
+            <h2>Кто ты на профи-выходных?</h2>
+            <p>Можно пройти вместе с ребенком. Никакой психологии на 40 страниц, просто быстрый способ выбрать тему.</p>
+          </div>
+          <div class="quiz-actions" aria-label="Варианты ответа">
+            <button type="button" data-quiz="tech">Люблю разбираться, как все устроено</button>
+            <button type="button" data-quiz="creative">Придумываю идеи и спорю за них</button>
+            <button type="button" data-quiz="business">Хочу понять, как работают деньги и проекты</button>
+            <button type="button" data-quiz="sport">Лучше думаю, когда двигаюсь</button>
+          </div>
+          <div class="quiz-result" id="quiz-result">
+            <strong>Выберите вариант</strong>
+            <span>Подскажем, с какой темы начать.</span>
+          </div>
+        </div>
+      </section>
+
       <section id="register" class="section register">
         <div class="section-heading">
           <p class="eyebrow">Как стать участником</p>
-          <h2>Выберите заезд и оставьте контакты. Мы свяжемся с вами по деталям.</h2>
+          <h2>Выберите дату и оставьте контакт. Мы вернемся с деталями по участию.</h2>
         </div>
         <div class="register-layout">
           <form class="form" id="weekend-form">
+            <input type="hidden" name="date" id="selected-date" value="02-04 октября 2026" />
             <label>
               ФИО родителя
               <input name="parent" autocomplete="name" required />
@@ -228,26 +378,33 @@
               Телефон или Telegram
               <input name="contact" autocomplete="tel" required />
             </label>
+            <div class="date-choice" aria-label="Выбор заезда">
+              <p>Заезд</p>
+              <button class="date-choice-card active" type="button" data-date="02-04 октября 2026">
+                <strong>02-04 октября 2026</strong>
+                <span>пилотный выезд</span>
+              </button>
+              <button class="date-choice-card" type="button" data-date="08-10 января 2027">
+                <strong>08-10 января 2027</strong>
+                <span>зимний формат</span>
+              </button>
+              <button class="date-choice-card" type="button" data-date="26-28 марта 2027">
+                <strong>26-28 марта 2027</strong>
+                <span>весенняя смена</span>
+              </button>
+            </div>
             <label>
-              Заезд
-              <select name="date" required>
-                <option>02-04 октября 2026</option>
-                <option>08-10 января 2027</option>
-                <option>26-28 марта 2027</option>
-              </select>
-            </label>
-            <label>
-              Комментарий
+              Что важно знать
               <textarea name="comment" rows="4" placeholder="Аллергии, питание, особенности, вопросы"></textarea>
             </label>
-            <button class="button primary" type="submit">Отправить заявку</button>
-            <p class="form-note">После отправки форма покажет черновик заявки. Подключение к CRM или почте можно добавить отдельно.</p>
+            <button class="button primary" type="submit">Отправить</button>
+            <p class="form-note">Форма пока сохраняет черновик заявки на странице. Отправку на почту или в CRM можно подключить следующим шагом.</p>
           </form>
           <aside class="dates-panel">
             <h3>Пилотные заезды</h3>
             <div class="date-row active">
               <span>02-04 октября 2026</span>
-              <small>первый выезд</small>
+              <small>пилотный выезд</small>
             </div>
             <div class="date-row">
               <span>08-10 января 2027</span>
@@ -257,7 +414,7 @@
               <span>26-28 марта 2027</span>
               <small>весенняя смена</small>
             </div>
-            <p>Места ограничены: до 50 детей на выходные. Так что “я подумаю до выпускного” может не сработать.</p>
+            <p>На один выезд до 50 мест. Если дата подходит, лучше выбрать ее сейчас, а детали уточнить после.</p>
           </aside>
         </div>
       </section>
@@ -271,7 +428,15 @@
       <span>Sistema Weekends · Профи-выходные для детей сотрудников</span>
     </footer>
 
+    <div class="sticky-cta" aria-label="Быстрая запись">
+      <div>
+        <strong>02-04 октября · 21 926 ₽</strong>
+        <span>до 50 мест, 3 дня / 2 ночи</span>
+      </div>
+      <a class="button primary" href="#register">Выбрать дату</a>
+    </div>
+
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
