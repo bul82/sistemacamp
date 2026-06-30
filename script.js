@@ -1,5 +1,4 @@
 const form = document.querySelector("#weekend-form");
-const heroForm = document.querySelector("#hero-form");
 const toast = document.querySelector("#toast");
 const stickyCta = document.querySelector(".sticky-cta");
 const preloader = document.querySelector(".preloader");
@@ -128,12 +127,4 @@ form?.addEventListener("submit", (event) => {
   form.reset();
   document.querySelectorAll(".date-choice-card").forEach((card, index) => card.classList.toggle("active", index === 0));
   if (selectedDateInput) selectedDateInput.value = "02-04 октября 2026";
-});
-
-heroForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(heroForm);
-  const name = data.get("name") || "контакт";
-  showToast(`Контакт сохранен: ${name}. Следующий шаг — подключить отправку в CRM или на почту.`);
-  heroForm.reset();
 });

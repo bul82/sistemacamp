@@ -376,7 +376,7 @@ img {
   position: relative;
   width: 100%;
   display: grid;
-  min-height: calc(100svh - 73px);
+  min-height: calc(92svh - 73px);
   grid-template-columns: 1fr;
   place-items: center;
   padding: clamp(82px, 10vw, 132px) max(18px, 4vw) clamp(70px, 9vw, 104px);
@@ -1868,7 +1868,8 @@ textarea:focus {
   }
 
   h2 {
-    font-size: 34px;
+    font-size: 30px;
+    line-height: 1.08;
   }
 
   .hero-facts,
