@@ -28,6 +28,10 @@ def upload_dir(sftp, local_dir, remote_dir):
     for root, _, files in os.walk(local_dir):
         rel_root = os.path.relpath(root, local_dir)
         target_root = remote_dir if rel_root == "." else f"{remote_dir}/{rel_root}"
+        try:
+            sftp.mkdir(target_root)
+        except OSError:
+            pass
         for filename in files:
             local_path = os.path.join(root, filename)
             remote_path = f"{target_root}/{filename}"
