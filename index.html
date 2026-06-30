@@ -33,15 +33,13 @@
     </div>
     <header class="site-header" aria-label="Навигация">
       <a class="brand" href="#top" aria-label="sistemacamp">
-        <span class="brand-mark">s</span>
-        <span>sistemacamp</span>
+        <span>sistema</span><i>&gt;&gt;</i><span>weekends</span>
       </a>
       <nav class="nav" aria-label="Разделы страницы">
+        <a href="#register">Подать заявку</a>
+        <a href="#dates">Выезды 2026</a>
         <a href="#who">Кто участвует</a>
         <a href="#formats">Форматы</a>
-        <a href="#program">Программа</a>
-        <a href="#comfort">Комфорт</a>
-        <a href="#price">Цена</a>
       </nav>
       <a class="nav-cta" href="#register">Записаться</a>
     </header>
@@ -49,11 +47,11 @@
     <main id="top">
       <section class="hero section">
         <div class="hero-copy">
-          <p class="eyebrow">Sistema Weekends · Профи-выходные</p>
-          <h1>Выходные, где ребенок пробует профессии руками.</h1>
+          <p class="eyebrow">Sistema Weekends · выезды 2026</p>
+          <h1>Образовательно-развлекательные выходные</h1>
           <p class="lead">
-            3 дня для детей 11-14 лет: мастер-классы от людей из бизнеса, IT, медиа и креатива,
-            командные игры, спорт и вечерняя программа. И нормальный сон. Без него подростковая магия быстро превращается в тыкву.
+            Оставьте контакт, чтобы первыми получить детали пилотных выездов для детей 11-14 лет:
+            профессии на практике, командные игры, спорт, проживание и трансфер.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#register">Выбрать дату</a>
@@ -73,6 +71,17 @@
               <span>места по регистрации</span>
             </div>
           </div>
+          <form class="hero-form" id="hero-form">
+            <label>
+              Ваша электронная почта
+              <input type="email" name="email" placeholder="example@site.com" required />
+            </label>
+            <label>
+              Ваше имя
+              <input name="name" placeholder="Имя" required />
+            </label>
+            <button class="button primary" type="submit">Отправить</button>
+          </form>
         </div>
         <div class="hero-visual" aria-label="Дети на активной программе">
           <img
@@ -422,8 +431,7 @@
 
     <footer class="footer">
       <a class="brand" href="#top" aria-label="sistemacamp">
-        <span class="brand-mark">s</span>
-        <span>sistemacamp</span>
+        <span>sistema</span><i>&gt;&gt;</i><span>weekends</span>
       </a>
       <span>Sistema Weekends · Профи-выходные для детей сотрудников</span>
     </footer>
