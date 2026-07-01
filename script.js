@@ -3,8 +3,9 @@ const toast = document.querySelector("#toast");
 const stickyCta = document.querySelector(".sticky-cta");
 const preloader = document.querySelector(".preloader");
 const selectedDateInput = document.querySelector("#selected-date");
+const roleBadge = document.querySelector("#role-badge");
 const revealTargets = document.querySelectorAll(
-  ".split, .weekend-picker, .format-shell, .program .section-heading, .program-card, .timeline, .takeaways, .takeaway-grid article, .comfort-copy, .comfort-photo, .comfort-list div, .parent-check, .check-grid div, .price-card, .included-grid span, .quiz-card, .register .section-heading, .form, .dates-panel"
+  ".split, .weekend-picker, .format-shell, .program .section-heading, .program-card, .weekend-route, .route-step, .takeaways, .takeaway-grid article, .comfort-copy, .comfort-photo, .comfort-list div, .parent-check, .check-grid div, .price-card, .included-grid span, .quiz-card, .register .section-heading, .form, .dates-panel"
 );
 
 const formats = {
@@ -35,10 +36,10 @@ const formats = {
 };
 
 const quizResults = {
-  tech: ["ТЕХ-исследователь", "Начните с ТЕХ-выходных: там больше логики, продуктов и задач “как это работает”."],
-  creative: ["Креативный продюсер", "Подойдут креативные выходные: идеи, упаковка смысла и защита своей версии."],
-  business: ["Мини-предприниматель", "Хороший старт — бизнес-выходные: идея, польза, простая экономика и выступление."],
-  sport: ["Капитан команды", "Спорт-выходные дадут больше движения, командных решений и энергии."]
+  tech: ["Тех-детектив", "Начните с ТЕХ-выходных: там больше логики, продуктов и задач “как это работает”.", "tech"],
+  creative: ["Креатор идей", "Подойдут креативные выходные: идеи, упаковка смысла и защита своей версии.", "creative"],
+  business: ["Мини-босс", "Хороший старт — бизнес-выходные: идея, польза, простая экономика и выступление.", "business"],
+  sport: ["Капитан движухи", "Спорт-выходные дадут больше движения, командных решений и энергии.", "sport"]
 };
 
 document.body.classList.add("reveal-ready");
@@ -100,6 +101,12 @@ document.querySelectorAll("[data-quiz]").forEach((button) => {
     document.querySelectorAll("[data-quiz]").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
     document.querySelector("#quiz-result").innerHTML = `<strong>${result[0]}</strong><span>${result[1]}</span>`;
+    if (roleBadge) {
+      roleBadge.dataset.role = result[2];
+      roleBadge.querySelector("span").textContent = result[0];
+      roleBadge.classList.add("is-jumped");
+      window.setTimeout(() => roleBadge.classList.remove("is-jumped"), 280);
+    }
   });
 });
 

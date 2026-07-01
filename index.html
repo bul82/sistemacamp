@@ -176,6 +176,34 @@
           <p class="eyebrow">Структура программы</p>
           <h2>Учимся, двигаемся, пробуем профессии. В один уикенд.</h2>
         </div>
+        <div class="weekend-route" aria-label="Маршрут уикенда">
+          <svg viewBox="0 0 980 140" aria-hidden="true" focusable="false">
+            <path class="route-base" d="M40 92 C170 28 250 126 382 70 S614 18 734 82 S882 128 940 48" />
+            <path class="route-line" d="M40 92 C170 28 250 126 382 70 S614 18 734 82 S882 128 940 48" />
+            <circle class="route-dot dot-a" cx="40" cy="92" r="8" />
+            <circle class="route-dot dot-b" cx="382" cy="70" r="8" />
+            <circle class="route-dot dot-c" cx="734" cy="82" r="8" />
+            <circle class="route-dot dot-d" cx="940" cy="48" r="8" />
+          </svg>
+          <div class="route-steps">
+            <article class="route-step">
+              <span>Пт</span>
+              <strong>Заезд и команда</strong>
+              <p>Автобус, знакомство, первые задания без “ну я никого не знаю”.</p>
+            </article>
+            <article class="route-step">
+              <span>Сб</span>
+              <strong>Профессии в деле</strong>
+              <p>Мастер-классы, мини-кейсы, спорт и вечерняя программа.</p>
+            </article>
+            <article class="route-step">
+              <span>Вс</span>
+              <strong>Финальный проект</strong>
+              <p>Команда собирает результат, показывает идею и едет домой с историей.</p>
+            </article>
+          </div>
+        </div>
+
         <div class="program-grid">
           <article class="program-card blue">
             <p class="card-kicker">Мышление и навыки</p>
@@ -209,20 +237,6 @@
           </article>
         </div>
 
-        <div class="timeline" aria-label="План выходных">
-          <div>
-            <strong>Пятница</strong>
-            <span>заезд, знакомство, первые командные задания</span>
-          </div>
-          <div>
-            <strong>Суббота</strong>
-            <span>мастер-классы, спорт, игры и вечерняя программа</span>
-          </div>
-          <div>
-            <strong>Воскресенье</strong>
-            <span>мини-проект, итоги и дорога домой</span>
-          </div>
-        </div>
       </section>
 
       <section id="comfort" class="section comfort">
@@ -314,21 +328,36 @@
       </section>
 
       <section class="section quiz">
-        <div class="quiz-card">
+        <div class="quiz-card role-card">
           <div>
-            <p class="eyebrow">Мини-квиз</p>
-            <h2>Кто ты на профи-выходных?</h2>
-            <p>Можно пройти вместе с ребенком. Никакой психологии на 40 страниц, просто быстрый способ выбрать тему.</p>
+            <p class="eyebrow">Выбери роль</p>
+            <h2>Кем ребенок зайдет в weekend?</h2>
+            <p>Не тест на характер, а быстрый способ поймать интерес: технологии, идеи, проекты или командный драйв.</p>
+            <div class="role-badge" id="role-badge" data-role="business" aria-hidden="true">
+              <span>mini boss</span>
+            </div>
           </div>
           <div class="quiz-actions" aria-label="Варианты ответа">
-            <button type="button" data-quiz="tech">Люблю разбираться, как все устроено</button>
-            <button type="button" data-quiz="creative">Придумываю идеи и спорю за них</button>
-            <button type="button" data-quiz="business">Хочу понять, как работают деньги и проекты</button>
-            <button type="button" data-quiz="sport">Лучше думаю, когда двигаюсь</button>
+            <button class="active" type="button" data-quiz="business">
+              <span class="anime-kid" aria-hidden="true"><i></i><b></b><em></em></span>
+              <span class="role-title">Мини-босс</span>
+            </button>
+            <button type="button" data-quiz="tech">
+              <span class="anime-kid" aria-hidden="true"><i></i><b></b><em></em></span>
+              <span class="role-title">Тех-детектив</span>
+            </button>
+            <button type="button" data-quiz="creative">
+              <span class="anime-kid" aria-hidden="true"><i></i><b></b><em></em></span>
+              <span class="role-title">Креатор идей</span>
+            </button>
+            <button type="button" data-quiz="sport">
+              <span class="anime-kid" aria-hidden="true"><i></i><b></b><em></em></span>
+              <span class="role-title">Капитан движухи</span>
+            </button>
           </div>
           <div class="quiz-result" id="quiz-result">
-            <strong>Выберите вариант</strong>
-            <span>Подскажем, с какой темы начать.</span>
+            <strong>Мини-предприниматель</strong>
+            <span>Хороший старт — бизнес-выходные: идея, польза, простая экономика и выступление.</span>
           </div>
         </div>
       </section>
