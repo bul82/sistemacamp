@@ -1523,202 +1523,124 @@ h3 {
   content: ">";
 }
 
-.anime-kid {
-  position: relative;
-  display: block;
-  width: 58px;
-  height: 66px;
-  align-self: end;
-  filter: drop-shadow(5px 7px 0 rgba(22, 25, 31, 0.08));
-  transform-origin: 50% 100%;
-  animation: kid-idle 3.2s ease-in-out infinite;
-}
-
-.anime-kid::marker {
-  display: none;
-}
-
-.anime-kid i,
-.anime-kid b,
-.anime-kid em,
-.anime-kid::before,
-.anime-kid::after {
-  position: absolute;
-  display: block;
-  content: "";
-}
-
-.anime-kid b {
-  left: 13px;
-  top: 12px;
-  width: 32px;
-  height: 34px;
-  background: #ffd9bd;
-  border: 2px solid var(--ink);
-  border-radius: 45% 45% 48% 48%;
-}
-
-.anime-kid i {
-  left: 9px;
-  top: 6px;
-  z-index: 2;
-  width: 40px;
-  height: 24px;
-  background: #222631;
-  border: 2px solid var(--ink);
-  border-radius: 20px 20px 12px 12px;
-  clip-path: polygon(0 22%, 24% 0, 44% 30%, 68% 0, 100% 24%, 100% 74%, 0 86%);
-}
-
-.anime-kid b::before,
-.anime-kid b::after {
-  position: absolute;
-  top: 15px;
-  width: 5px;
-  height: 7px;
-  content: "";
-  background: var(--ink);
-  border-radius: 50%;
-  animation: kid-blink 4.8s ease-in-out infinite;
-}
-
-.anime-kid b::before {
-  left: 8px;
-}
-
-.anime-kid b::after {
-  right: 8px;
-}
-
-.anime-kid em {
-  left: 10px;
-  bottom: 0;
-  width: 38px;
-  height: 28px;
-  background: var(--violet-strong);
-  border: 2px solid var(--ink);
-  border-radius: 14px 14px 9px 9px;
-}
-
-.anime-kid em::before,
-.anime-kid em::after,
-.anime-kid i::before,
-.anime-kid i::after {
-  position: absolute;
-  display: block;
-  content: "";
-}
-
-.anime-kid::before,
-.anime-kid::after {
-  bottom: 12px;
-  width: 16px;
-  height: 7px;
-  background: #ffd9bd;
-  border: 2px solid var(--ink);
-  border-radius: 999px;
-}
-
-.anime-kid::before {
-  left: 0;
-  transform: rotate(-28deg);
-}
-
-.anime-kid::after {
-  right: 0;
-  transform: rotate(28deg);
-}
-
 .role-title {
   position: relative;
   z-index: 1;
   align-self: end;
 }
 
-.role-card .quiz-actions button[data-quiz="business"] .anime-kid em::before {
-  right: -5px;
-  bottom: 5px;
-  width: 17px;
-  height: 12px;
-  background: #ffe36e;
-  border: 2px solid var(--ink);
-  border-radius: 3px;
-  transform: rotate(-8deg);
+.role-mark {
+  position: relative;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  align-self: center;
+  background: var(--night);
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 6px 7px 0 rgba(22, 25, 31, 0.08);
+  transform: rotate(-4deg);
+  transition: transform 0.22s ease, background 0.22s ease;
 }
 
-.role-card .quiz-actions button[data-quiz="business"] .anime-kid em::after {
-  left: 15px;
-  top: 5px;
-  width: 8px;
-  height: 13px;
+.role-mark::before,
+.role-mark::after {
+  position: absolute;
+  display: block;
+  content: "";
+}
+
+.role-card .quiz-actions button:hover .role-mark,
+.role-card .quiz-actions button.active .role-mark {
+  transform: translateY(-3px) rotate(3deg);
+}
+
+.role-card .quiz-actions button[data-quiz="business"] .role-mark {
   background: var(--lime);
-  clip-path: polygon(50% 0, 100% 100%, 50% 76%, 0 100%);
 }
 
-.role-card .quiz-actions button[data-quiz="tech"] .anime-kid b::before,
-.role-card .quiz-actions button[data-quiz="tech"] .anime-kid b::after {
-  width: 8px;
-  height: 8px;
-  background: transparent;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
+.role-card .quiz-actions button[data-quiz="business"] .role-mark::before {
+  content: "$";
+  color: var(--night);
+  font-size: 32px;
+  font-weight: 900;
 }
 
-.role-card .quiz-actions button[data-quiz="tech"] .anime-kid i::after {
-  right: -9px;
-  bottom: -7px;
-  width: 16px;
-  height: 16px;
-  border: 3px solid #9ee7ff;
+.role-card .quiz-actions button[data-quiz="business"] .role-mark::after {
+  right: -6px;
+  bottom: 8px;
+  width: 20px;
+  height: 14px;
+  background: #ffe36e;
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+  transform: rotate(-10deg);
+}
+
+.role-card .quiz-actions button[data-quiz="tech"] .role-mark {
+  background: #9ee7ff;
+}
+
+.role-card .quiz-actions button[data-quiz="tech"] .role-mark::before {
+  width: 28px;
+  height: 28px;
+  border: 5px solid var(--blue-deep);
   border-left-color: transparent;
   border-radius: 50%;
   animation: scan-spin 2.4s linear infinite;
 }
 
-.role-card .quiz-actions button[data-quiz="creative"] .anime-kid i::after {
-  top: -14px;
-  right: -10px;
-  width: 18px;
-  height: 18px;
-  background: #ffd05a;
-  clip-path: polygon(50% 0, 62% 34%, 100% 28%, 70% 52%, 88% 88%, 50% 66%, 12% 88%, 30% 52%, 0 28%, 38% 34%);
-  animation: idea-pop 1.8s ease-in-out infinite;
+.role-card .quiz-actions button[data-quiz="tech"] .role-mark::after {
+  content: "{}";
+  right: -8px;
+  top: -8px;
+  color: var(--blue-deep);
+  font-size: 21px;
+  font-weight: 900;
 }
 
-.role-card .quiz-actions button[data-quiz="sport"] .anime-kid::after {
-  right: -5px;
-  bottom: 22px;
-  transform: rotate(-48deg);
-  animation: captain-wave 1.5s ease-in-out infinite;
-}
-
-.role-card .quiz-actions button[data-quiz="tech"] .anime-kid i {
-  background: #2c3f86;
-}
-
-.role-card .quiz-actions button[data-quiz="tech"] .anime-kid em {
-  background: #9ee7ff;
-}
-
-.role-card .quiz-actions button[data-quiz="creative"] .anime-kid i {
-  background: #b72f64;
-}
-
-.role-card .quiz-actions button[data-quiz="creative"] .anime-kid em {
+.role-card .quiz-actions button[data-quiz="creative"] .role-mark {
   background: #ffd05a;
 }
 
-.role-card .quiz-actions button[data-quiz="sport"] .anime-kid i {
-  background: #284c36;
+.role-card .quiz-actions button[data-quiz="creative"] .role-mark::before {
+  width: 22px;
+  height: 28px;
+  background:
+    linear-gradient(var(--ink) 0 0) 50% 100% / 14px 7px no-repeat,
+    radial-gradient(circle at 50% 35%, #fffbd0 0 35%, #ffd05a 36% 64%, transparent 65%);
+  filter: drop-shadow(0 0 10px rgba(255, 208, 90, 0.9));
+  animation: idea-bulb 2.4s ease-in-out infinite;
 }
 
-.role-card .quiz-actions button[data-quiz="sport"] .anime-kid em {
+.role-card .quiz-actions button[data-quiz="creative"] .role-mark::after {
+  inset: 7px;
+  border: 3px solid rgba(183, 47, 100, 0.5);
+  border-radius: 50%;
+  animation: idea-ring 2.4s ease-in-out infinite;
+}
+
+.role-card .quiz-actions button[data-quiz="sport"] .role-mark {
   background: #2d8f62;
 }
 
-.role-card .quiz-actions button:hover .anime-kid,
-.role-card .quiz-actions button.active .anime-kid {
-  animation-duration: 1.7s;
+.role-card .quiz-actions button[data-quiz="sport"] .role-mark::before {
+  width: 28px;
+  height: 20px;
+  border-top: 7px solid white;
+  border-right: 7px solid white;
+  transform: rotate(35deg);
+  animation: captain-mark 1.6s ease-in-out infinite;
+}
+
+.role-card .quiz-actions button[data-quiz="sport"] .role-mark::after {
+  right: -9px;
+  top: 10px;
+  width: 24px;
+  height: 7px;
+  background: var(--lime);
+  border-radius: 999px;
 }
 
 .quiz-result {
@@ -2037,50 +1959,55 @@ textarea:focus {
   }
 }
 
-@keyframes kid-idle {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-2deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(2deg);
-  }
-}
-
-@keyframes kid-blink {
-  0%,
-  92%,
-  100% {
-    transform: scaleY(1);
-  }
-  95% {
-    transform: scaleY(0.12);
-  }
-}
-
 @keyframes scan-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes idea-pop {
+@keyframes idea-bulb {
   0%,
-  100% {
-    transform: translateY(0) scale(0.85);
+  18% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.72);
   }
-  50% {
-    transform: translateY(-4px) scale(1.12) rotate(12deg);
+  28% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.06);
+  }
+  58%,
+  76% {
+    opacity: 1;
+    transform: translateY(0) scale(0.94);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.72);
   }
 }
 
-@keyframes captain-wave {
+@keyframes idea-ring {
+  0%,
+  18%,
+  90%,
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  28%,
+  58% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes captain-mark {
   0%,
   100% {
-    transform: rotate(-48deg);
+    transform: rotate(35deg) translate(0, 0);
   }
   50% {
-    transform: rotate(-22deg) translateY(-2px);
+    transform: rotate(35deg) translate(5px, -5px);
   }
 }
 
@@ -2257,8 +2184,17 @@ textarea:focus {
 
   .quiz-result {
     grid-column: 1;
+    grid-row: auto;
     max-width: none;
     margin: 0;
+  }
+
+  .role-card {
+    grid-template-columns: 1fr;
+  }
+
+  .role-card > div:first-child {
+    grid-row: auto;
   }
 
   .weekend-route svg {
